@@ -321,6 +321,11 @@ oxide --url https://target.example.com --zeroday --verbose
 ```bash
 oxide --url https://target.example.com --rate-limit 5 --silent-mode
 ```
+### [New Feauture] Multi-Attack
+```bash
+oxide --url http://target1.com --url http://target2.com --multiattack --threads 6 --duration 120s
+```
+
 
 ### With Authentication
 
