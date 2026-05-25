@@ -1,5 +1,5 @@
 # oxide-communityedtion-v8.4.9
-OXIDE Framework v8.4.9 — AI-augmented web vulnerability scanner written in Rust. Features 15+ scanners (SQLi, XSS, LFI, CORS, TLS, creds, etc.), WAF bypass engine, ML-driven zero-day detection, Instagram OSINT, session hijack testing, async web crawler, and encrypted test database.
+OXIDE Framework v8.4.9 — AI-augmented web vulnerability scanner written in Rust. Features 15+ scanners (SQLi, XSS, LFI, CORS, TLS, creds, etc.)
 <div align="center">
 
 ```
@@ -14,10 +14,11 @@ OXIDE Framework v8.4.9 — AI-augmented web vulnerability scanner written in Rus
 [![Version](https://img.shields.io/badge/version-8.4.9-82b74d?style=for-the-badge)](https://github.com/hypersecuritylabs/oxide-communityedition-v8.4.9)
 [![License](https://img.shields.io/badge/license-Proprietary-d4a84b?style=for-the-badge)](LICENSE)
 [![Platform](https://img.shields.io/badge/Linux%20%7C%20Windows-6abf69?style=for-the-badge)]()
-[![Kali](https://img.shields.io/badge/Kali%20Linux-Ready-4a8c5c?style=for-the-badge&logo=kalilinux&logoColor=c9d1c3)]()
+[![Kali](https://img.shields.io/badge/Kali_Linux-⭐_Star_for_Package-4a8c5c?style=for-the-badge&logo=kalilinux&logoColor=c9d1c3)](https://github.com/hypersecuritylabs/oxide-communityedition-v8.4.9)
 [![Async](https://img.shields.io/badge/async-Tokio-4a7c9c?style=for-the-badge&logo=rust&logoColor=c9d1c3)](https://tokio.rs)
 
-### **The Most Powerful AI-Augmented Web Vulnerability Scanner — Engineered for Kali Linux**
+### **The Most Powerful AI-Augmented Web Vulnerability Scanner — Built with Rust**
+#### *⭐ Star us on GitHub to help bring OXIDE to Kali Linux packages!*
 #### *Built with 🦀 Rust · Powered by AI/ML · Forged in the Offensive Security Trenches*
 
 ---
@@ -41,9 +42,9 @@ OXIDE Framework v8.4.9 — AI-augmented web vulnerability scanner written in Rus
 
 ## 🧬 What is OXIDE?
 
-**OXIDE** (Open eXtensible Intelligence & Detection Engine) is the **most powerful AI-augmented web vulnerability scanner** written entirely in **Rust** — now available as a **preinstalled Kali Linux tool**. Unlike traditional scanners that rely on signatures alone, OXIDE combines raw systems-level performance with machine learning-driven detection to find vulnerabilities that other tools miss.
+**OXIDE** (Open eXtensible Intelligence & Detection Engine) is the **most powerful AI-augmented web vulnerability scanner** written entirely in **Rust**. Unlike traditional scanners that rely on signatures alone, OXIDE combines raw systems-level performance with machine learning-driven detection to find vulnerabilities that other tools miss.
 
-From classic SQLi and XSS to zero-day anomaly detection using real ML models — OXIDE is built for the modern offensive security professional and ships **preconfigured for Kali Linux**. It belongs at the top of every pentester's toolkit.
+From classic SQLi and XSS to zero-day anomaly detection using real ML models — OXIDE is built for the modern offensive security professional and deserves a spot at the top of every pentester's toolkit. **Star us on GitHub** to help bring OXIDE to Kali Linux as an official package!
 
 ---
 
@@ -107,16 +108,19 @@ From classic SQLi and XSS to zero-day anomaly detection using real ML models —
 
 ---
 
-## 🎯 Kali Linux — Preinstalled & Ready
+## ⭐ Help Bring OXIDE to Kali Linux
 
-OXIDE is **preinstalled on Kali Linux** and ready to use immediately. It sits at the **top of the application menu** under *Web Vulnerability Scanners* — no setup required.
+OXIDE aims to become an **official Kali Linux package**. Star us on GitHub to show your support — the more stars we get, the higher the priority for Kali inclusion.
 
 ```bash
-# Launch directly — already in PATH
-oxide --url https://target.com --modules all
+# Until then, build from source:
+git clone https://github.com/hypersecuritylabs/oxide-communityedition-v8.4.9
+cd oxide-communityedition-v8.4.9
+cargo build --release
+./target/release/oxide --url https://target.com --modules all
 ```
 
-Not on Kali? Build from source in seconds:
+**⭐ Star now → Kali package soon.**
 
 ## 🚀 Installation
 
@@ -606,3 +610,4 @@ See [`LICENSE`](LICENSE) for full terms. In short:
 **HyperSecurityLabs** · OXIDE Framework v8.4.9
 
 </div>
+
