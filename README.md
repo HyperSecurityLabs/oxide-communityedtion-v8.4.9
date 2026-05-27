@@ -1,5 +1,5 @@
-# oxide-communityedtion-v8.4.9
-OXIDE Framework v8.4.9 — AI-augmented web vulnerability scanner written in Rust. Features 15+ scanners (SQLi, XSS, LFI, CORS, TLS, creds, etc.)
+# oxide-communityedtion-v8.5.0
+OXIDE Framework v8.5.0 — AI-augmented web vulnerability scanner written in Rust. Features 15+ scanners (SQLi, XSS, LFI, CORS, TLS, creds, etc.)
 <div align="center">
 
 ```
@@ -114,8 +114,8 @@ OXIDE aims to become an **official Kali Linux package**. Star us on GitHub to sh
 
 ```bash
 # Until then, build from source:
-git clone https://github.com/hypersecuritylabs/oxide-communityedition-v8.4.9
-cd oxide-communityedition-v8.4.9
+git clone https://github.com/hypersecuritylabs/oxide-communityedition-v8.5.0
+cd oxide-communityedition-v8.5.0
 cargo build --release
 ./target/release/oxide --url https://target.com --modules all
 ```
@@ -132,8 +132,8 @@ cargo build --release
 ### Build from Source
 
 ```bash
-git clone https://github.com/hypersecuritylabs/oxide-communityedition-v8.4.9
-cd oxide-communityedition-v8.4.9
+git clone https://github.com/hypersecuritylabs/oxide-communityedition-v8.5.0
+cd oxide-communityedition-v8.5.0
 
 # Quick build (default debug)
 cargo build
@@ -507,13 +507,14 @@ OxideCommunityEdtionv8.3/
 
 ---
 
-## 📋 Changelog — v8.4.0
+## 📋 Changelog — v8.5.0
 
 ### New Features
 - **Evergreens Theme** — Replaced Gruvbox Dark + Rosé Pine accents with a deep forest green palette (default and only theme)
 - **Instagram OSINT Module** (`--insta`) — Scrapes public profiles for follower count, private/verified status, bio, profile picture download
 - **Session Hijack Testing** (`--session`) — OWASP best-practice cookie flag checks (HttpOnly, Secure, SameSite, Path, expiration), session fixation, token predictability
 - **ML Classifier Trainer** (`--train`) — Runs TLS/CORS/CommonApp/Creds scanners against live targets, collects `(ResponseFeatures, is_vulnerable)` pairs, trains Random Forest, exports `zero_day_model.bin` + `.json`
+- **Enchanced Progress UI**
 
 ### Improvements
 - **Windows Cross-Compilation** — Full support for `x86_64-pc-windows-gnu` and `x86_64-pc-windows-msvc`; proxy library builds as `liboxide_proxy.dll`
@@ -612,7 +613,7 @@ See [`LICENSE`](LICENSE) for full terms. In short:
 
 *Built with* 🦀 *Rust · Forged in the offensive security trenches*
 
-**HyperSecurityLabs** · OXIDE Framework v8.4.9
+**HyperSecurityLabs** · OXIDE Framework v8.5.0
 
 </div>
 
