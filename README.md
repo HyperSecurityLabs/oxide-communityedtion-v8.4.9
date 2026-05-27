@@ -1,4 +1,4 @@
-# oxide-communityedtion-v8.5.0
+# oxide-communityedtion-v8.5.0 Just Wait For this Announce Later
 OXIDE Framework v8.5.0 — AI-augmented web vulnerability scanner written in Rust. Features 15+ scanners (SQLi, XSS, LFI, CORS, TLS, creds, etc.)
 <div align="center">
 
