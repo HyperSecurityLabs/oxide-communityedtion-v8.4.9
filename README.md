@@ -7,7 +7,7 @@ OXIDE Framework v8.5.0 — AI-augmented web vulnerability scanner written in Rus
   / __ \ |/ //  _/ __ \/ ____/
  / / / /   / / // / / / __/
 / /_/ /   |_/ // /_/ / /___
-\____/_/|_/___/_____/_____/
+\____/_/|_/___/_____/_____/  Edition://EverGreen 
 ```
 
 [![Rust](https://img.shields.io/badge/Rust-1.75%2B-4a8c5c?style=for-the-badge&logo=rust&logoColor=c9d1c3)](https://rustup.rs/)
