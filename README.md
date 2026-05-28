@@ -16,7 +16,9 @@
 [![Platform](https://img.shields.io/badge/Linux%20%7C%20Windows-64b5f6?style=for-the-badge)]()
 [![AI](https://img.shields.io/badge/AI%2FML-Random%20Forest%20%7C%20SVM-76af8c?style=for-the-badge)]()
 
-### **AI-Augmented Web Vulnerability Scanner — Built with Rust**
-#### *Powered by AI/ML · Forged in the Offensive Security Trenches*
+### **The Most Powerful AI-Augmented Web Vulnerability Scanner — Built with Rust**
+#### *⭐ Star us on GitHub to help bring OXIDE to Kali Linux packages!*
+#### *Built with 🦀 Rust · Powered by AI/ML · Forged in the Offensive Security Trenches*
 
 ---
+
