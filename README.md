@@ -19,6 +19,7 @@
 ### **The Most Powerful AI-Augmented Web Vulnerability Scanner — Built with Rust**
 #### *⭐ Star us on GitHub to help bring OXIDE to Kali Linux packages!*
 #### *Built with 🦀 Rust · Powered by AI/ML · Forged in the Offensive Security Trenches*
+<img width="1440" height="900" alt="Screenshot_2026-05-29_03_36_35" src="https://github.com/user-attachments/assets/b7732d42-b6d1-4713-8d99-970165370984" />
 
 ---
 
