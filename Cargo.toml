@@ -7,12 +7,20 @@ exclude = ["target"]
 
 [package]
 name = "oxide"
-version = "8.4.9"
+version = "8.5.0"
 edition = "2021"
 authors = ["khaninkali | HyperSecurityLabs"]
 description = "OXIDE - Open eXtensible Intelligence & Detection Engine"
-license-file = "LICENSE"
+license-file = "docs/LICENSE"
 repository = "https://github.com/hypersecuritylabs/oxide-communityedition-v8.4.9"
+
+[lib]
+name = "oxide"
+path = "src/lib.rs"
+
+[[bin]]
+name = "oxide"
+path = "src/main.rs"
 
 [dependencies]
 tokio = { version = "1.35", features = ["full"] }
@@ -44,6 +52,7 @@ rustls = "0.21"
 rand = "0.10.0"
 bincode = "1.3"
 libloading = "0.8"
+hypersecurity = { path = "hypersecurity" }
 csv = "1.4.0"
 rusqlite = { version = "0.31", features = ["bundled"] }
 smartcore = "0.3"
