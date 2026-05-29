@@ -1,617 +1,890 @@
 **OXIDE** (Open eXtensible Intelligence & Detection Engine) is a high-performance, AI-augmented web vulnerability scanner written entirely in **Rust**. It combines raw systems-level performance with machine learning-driven detection to find vulnerabilities that traditional scanners miss.
 
-<div align="center">
-
-```
-   ____ _  __ ________  ______
-  / __ \ |/ //  _/ __ \/ ____/
- / / / /   / // / / / / __/
-/ / / /   |_/ // /_/ / /___
-\____/_/|_/___/_____/_____/
-```
-
-[![Rust](https://img.shields.io/badge/Rust-1.75%2B-00b478?style=for-the-badge&logo=rust&logoColor=c9d1c3)](https://rustup.rs/)
-[![Version](https://img.shields.io/badge/version-8.5.0-00b478?style=for-the-badge)](https://github.com/hypersecuritylabs/oxide-communityedition-v8.5.0)
-[![License](https://img.shields.io/badge/license-Proprietary-c4a7e7?style=for-the-badge)](LICENSE)
-[![Platform](https://img.shields.io/badge/Linux%20%7C%20Windows-00c8ff?style=for-the-badge)]()
-[![Kali](https://img.shields.io/badge/Kali_Linux-⭐_Star_for_Package-00b478?style=for-the-badge&logo=kalilinux&logoColor=c9d1c3)](https://github.com/hypersecuritylabs/oxide-communityedition-v8.5.0)
-[![Async](https://img.shields.io/badge/async-Tokio-00c8ff?style=for-the-badge&logo=rust&logoColor=c9d1c3)](https://tokio.rs)
-
-
-### **The Most Powerful AI-Augmented Web Vulnerability Scanner — Built with Rust**
-#### *⭐ Star us on GitHub to help bring OXIDE to Kali Linux packages!*
-#### *Built with 🦀 Rust · Powered by AI/ML · Forged in the Offensive Security Trenches*
+<p align="center">
+  <img src="https://img.shields.io/badge/version-8.5.0-50dca0?style=for-the-badge&labelColor=1a1a2e" />
+  <img src="https://img.shields.io/badge/status-FINAL%20RELEASE-80dca0?style=for-the-badge&labelColor=1a1a2e" />
+  <img src="https://img.shields.io/badge/license-Proprietary-beb0eb?style=for-the-badge&labelColor=1a1a2e" />
+  <img src="https://img.shields.io/badge/platform-Linux%20%7C%20Windows-aac3eb?style=for-the-badge&labelColor=1a1a2e" />
+  <img src="https://img.shields.io/badge/Rust-2021-edition-50dca0?style=for-the-badge&labelColor=1a1a2e&logo=rust" />
+  <img src="https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kali-linux&logoColor=white&labelColor=1a1a2e" />
+</p>
 
 ---
 
-> **⚠️ LEGAL WARNING & COPYRIGHT NOTICE**
->
-> This tool is developed and maintained by **[khaninkali](https://github.com/hypersecuritylabs)** @ **[HyperSecurityLabs](https://hypersecuritylabs.netlify.app)**.
-> Unauthorized copying, redistribution, or use of this codebase — in whole or in part — without
-> explicit written permission is **strictly prohibited** and may result in legal action.
->
-> OXIDE is intended **exclusively** for authorized penetration testing, security research,
-> and educational purposes. **You are solely responsible** for ensuring you have proper
-> authorization before scanning any target. Misuse of this tool against systems you do not
-> own or have explicit permission to test is **illegal** and unethical.
->
-> © 2024-2025 khaninkali · HyperSecurityLabs · All Rights Reserved
+<h1 align="center">
+  <code style="color:#50dca0;background:#1a1a2e;padding:4px 16px;border-radius:6px;border:1px solid #50dca066;">[ 🦀 OXIDE Framework v8.5.0 ]</code>
+</h1>
 
-</div>
+<h3 align="center" style="color:#beb0eb;">
+  Open eXtensible Intelligence & Detection Engine
+</h3>
 
----
+<h4 align="center">
+  <em style="color:#aac3eb;">Community Edition — The Greatest Update · Final Release</em>
+</h4>
 
-## 🧬 What is OXIDE?
+<p align="center">
+  <strong style="color:#50dca0;">
+    Built with Rust · Powered by AI/ML · Engineered for Offensive Security
+  </strong>
+</p>
 
-**OXIDE** (Open eXtensible Intelligence & Detection Engine) is the **most powerful AI-augmented web vulnerability scanner** written entirely in **Rust**. Unlike traditional scanners that rely on signatures alone, OXIDE combines raw systems-level performance with machine learning-driven detection to find vulnerabilities that other tools miss.
+<br/>
 
-From classic SQLi and XSS to zero-day anomaly detection using real ML models — OXIDE is built for the modern offensive security professional and deserves a spot at the top of every pentester's toolkit. **Star us on GitHub** to help bring OXIDE to Kali Linux as an official package!
+<p align="center">
+  <code style="color:#50dca0;font-size:1.2em;">
+    ▷ This is the last freely-available Community Edition. ◁
+  </code>
+  <br/>
+  <span style="color:#7890a8;">
+    Future development moves exclusively to OXIDE Pro Edition.
+  </span>
+</p>
 
----
-
-## ⚡ Feature Highlights
-
-### 🔍 Vulnerability Scanners
-| Module | Description |
-|--------|-------------|
-| `sqli` | SQL Injection — error-based, blind, time-based |
-| `blind-sqli` | Blind SQLi with timing analysis |
-| `xss` | Cross-Site Scripting — reflected, stored, DOM |
-| `lfi` | Local File Inclusion with path traversal chains |
-| `path-traversal` | Directory traversal across OS variants |
-| `cmd-injection` | OS Command Injection detection |
-| `cors` | CORS misconfiguration assessment |
-| `tls` | Full TLS/SSL security audit |
-| `creds` | Default credential brute-force (6000+ combos) |
-| `common` | Nikto-style common app checks (2790+ tests) |
-| `db-fingerprint` | Database engine fingerprinting |
-| `insta` | Instagram OSINT — follower count, private status, profile pic |
-| `session` | Session hijack testing — cookie flags, fixation, predictability |
-| `train` | ML classifier trainer — learns from live scanner results |
-
-### 🤖 AI / ML Engine
-- **Zero-Day Detection** — statistical anomaly detection using `smartcore` (Random Forest, SVM) and `linfa` clustering
-- **Pattern Learner** — adaptive payload mutation based on response patterns
-- **Exploit Analyzer** — AI-driven exploit chain analysis
-- **Response Analyzer** — behavioral fingerprinting of HTTP responses
-- **Payload Mutator** — ML-guided payload evolution
-
-### 🕷️ Crawling & Discovery
-- Async multi-threaded web crawler with configurable depth and URL limits
-- JavaScript-aware crawling (`crawler_js`)
-- Automatic parameter discovery across all crawled URLs
-- Form input extraction and endpoint mapping
-
-### 🛡️ v8.5.0 Improvements
-
-| Improvement | Details |
-|-------------|---------|
-| **Duration Enforcement** | Global timer + per-payload deadline checks; ±1s accuracy |
-| **Request Counting Fixed** | SCAN COMPLETE shows actual HTTP request count |
-| **Color Audit** | Full Osaka-Jade & Lavender palette across all UI components |
-| **Findings Display** | All findings printed unconditionally after scan (no verbose gate) |
-| **SCAN COMPLETE Redesign** | ANSI-aware `vis()` padding, `─` borders with `│` corners |
-| **Severity Badges** | `[CRIT]` / `[HIGH]` / `[MEDIUM]` / `[LOW]` / `[INFO]` format |
-| **Code Cleanup** | Zero warnings, unused imports removed |
-
-### 📊 Reporting
-- Output formats: **JSON**, **HTML**, **CSV**, **XML**
-- Severity-classified findings: Critical / High / Medium / Low / Info
-- Auto-download of sensitive discovered files (`--download`)
-- Verbose mode with full evidence and remediation guidance
+<br/>
 
 ---
 
-## ⭐ Help Bring OXIDE to Kali Linux
+<p align="center">
+  <a href="https://github.com/hypersecuritylabs/oxide-communityedition-v8.5.0">
+    <img src="https://img.shields.io/badge/%E2%AD%90%20Star%20us%20on%20GitHub-50dca0?style=for-the-badge&labelColor=1a1a2e" alt="Star us on GitHub" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://www.kali.org/tools/">
+    <img src="https://img.shields.io/badge/Proudly%20crafted%20for-Kali%20Linux-557C94?style=for-the-badge&labelColor=1a1a2e&logo=kali-linux" alt="Kali Linux" />
+  </a>
+</p>
 
-OXIDE aims to become an **official Kali Linux package**. Star us on [GitHub](https://github.com/hypersecuritylabs/oxide-communityedition-v8.5.0) to show your support — the more stars we get, the higher the priority for Kali inclusion.
+<p align="center" style="color:#788298;">
+  <strong style="color:#50dca0;">⭐ Star this repository</strong> to support open-source security research.
+  <br/>
+  <span style="color:#aac3eb;">OXIDE is battle-tested and tuned for <strong style="color:#50dca0;">Kali Linux</strong> — the pentester's distro of choice.</span>
+</p>
 
-```bash
-# Until then, build from source:
-git clone https://github.com/hypersecuritylabs/oxide-communityedition-v8.5.0
-cd oxide-communityedition-v8.5.0
-cargo build --release
-./target/release/oxide --url https://target.com --modules all
-```
-
-**[⭐ Star on GitHub](https://github.com/hypersecuritylabs/oxide-communityedition-v8.5.0) → Kali package soon.**
-
-## 🚀 Installation
-
-### Prerequisites
-- [Rust](https://rustup.rs/) 1.75+ (2021 edition)
-- Cargo (bundled with Rust)
-- **Linux** (primary target) / **Windows** / **macOS**
-
-### Build from Source
-
-```bash
-git clone https://github.com/hypersecuritylabs/oxide-communityedition-v8.5.0
-cd oxide-communityedition-v8.5.0
-
-# Quick build (default debug)
-cargo build
-
-# Release build
-cargo build --release
-
-# Release build with Evergreens theme
-./oxide_build.sh --release
-```
-
-The binary will be at `./target/release/oxide` or `./target/debug/oxide`.
-
-### ⚙️ Proxy Shared Library
-
-OXIDE requires a proxy dynamic library — `liboxide_proxy.so` (Linux) or `liboxide_proxy.dll` (Windows) — that provides proxy routing, authentication, URL obfuscation, and rotation logic. The binary **refuses to run** without it.
-
-**Build it:**
-```bash
-cd oxide-proxy
-cargo build --release
-```
-
-**Install it** (one of):
-```bash
-# Next to the binary (auto-detected)
-cp oxide-proxy/target/release/liboxide_proxy.so target/release/
-
-# System-wide (Linux)
-sudo cp oxide-proxy/target/release/liboxide_proxy.so /usr/lib/
-
-# Custom path (Linux)
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/liboxide_proxy.so
-```
-
-On **Windows**, the file is `liboxide_proxy.dll`; place it in the same directory as `oxide.exe` or set `PATH`.
-
-### Build Script
-
-Use `oxide_build.sh` for optimized builds:
-
-```bash
-# Default debug build with Evergreens theme
-./oxide_build.sh
-
-# Release build with Evergreens theme
-./oxide_build.sh --release
-```
-
-### Optimized Release Build
-
-The release profile is pre-configured for maximum performance:
-```toml
-opt-level = 3
-lto = "thin"
-codegen-units = 1
-```
+<br/>
 
 ---
 
-## 🪟 Windows Compatibility
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ TOC ]</code>
+</h2>
 
-OXIDE is built with pure Rust and **cross-compiles to Windows** via both `x86_64-pc-windows-gnu` (MinGW) and `x86_64-pc-windows-msvc` (MSVC).
-
-| Component | Windows Status |
-|-----------|---------------|
-| Core scanner | ✅ Full support |
-| CLI & display | ✅ Full support (colored output) |
-| SQLite DB | ✅ `rusqlite` with bundled SQLite |
-| HTTP client | ✅ reqwest with native-tls or rustls |
-| Proxy library | ✅ Builds as `liboxide_proxy.dll` (cdylib) |
-| Instagram OSINT | ✅ Pure HTTP requests |
-| Session hijack | ✅ Pure HTTP requests |
-| ML engine | ✅ smartcore / linfa / ndarray |
-| Rate limiter | ✅ governor |
-| DNS resolver | ✅ trust-dns-resolver |
-| `pnet` (raw packet) | ⚠️ Limited — disable with `--no-default-features` |
-
-**Build for Windows (cross-compile from Linux):**
-```bash
-# GNU toolchain (recommended — no MSVC linker required)
-rustup target add x86_64-pc-windows-gnu
-cargo build --release --target x86_64-pc-windows-gnu
-
-# MSVC toolchain (requires mingw-w64 or native MSVC)
-rustup target add x86_64-pc-windows-msvc
-cargo build --release --target x86_64-pc-windows-msvc
-```
-
-**Or build natively on Windows:**
-```powershell
-cargo build --release
-# Place liboxide_proxy.dll next to oxide.exe
-```
-
-**Environment variable** (Windows): `set OXIDE_DB_DIR=C:\path\to\database`
+- [Overview](#-overview)
+- [What's New in v8.5.0](#-whats-new-in-v850-greatest-update)
+- [Vulnerability Scanners](#-vulnerability-scanners)
+- [AI / ML Engine](#-ai--ml-engine)
+- [Architecture](#-architecture)
+- [Quick Start](#-quick-start)
+- [CLI Reference](#-cli-reference)
+- [Display & Style System](#-display--style-system)
+- [Hypersecurity Kernel Module](#-hypersecurity-kernel-module)
+- [Security Hardening](#-security-hardening)
+- [Code Quality](#-code-quality)
+- [Distribution Packages](#-distribution-packages)
+- [Kali Linux](#-kali-linux)
+- [Star This Project](#-star-this-project)
+- [Known Limitations](#-known-limitations)
+- [License](#-license)
+- [Connect](#-connect)
 
 ---
 
-## 🧩 Proxy Library System
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ OVERVIEW ]</code>
+</h2>
 
-### How It Works
+**OXIDE** is a next-generation, AI-augmented web vulnerability scanner written entirely in **Rust**. It combines systems-level performance with machine learning-driven detection to find what traditional scanners miss.
 
-The proxy system is split into two parts:
+From classic SQLi and XSS to zero-day anomaly detection using real Random Forest and SVM models — OXIDE is built for the modern offensive security professional.
 
-**1. `oxide-proxy/` (cdylib → `liboxide_proxy.so`)**
+> **Release Date:** May 29, 2026
+> **Author:** [khaninkali](https://github.com/hypersecuritylabs) · HyperSecurityLabs
+> **Repository:** [github.com/hypersecuritylabs/oxide-communityedition-v8.5.0](https://github.com/hypersecuritylabs/oxide-communityedition-v8.5.0)
 
-A standalone Rust library compiled as a C-compatible dynamic library (`cdylib`) exporting 7 `extern "C"` functions:
+---
+
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ WHAT'S NEW IN v8.5.0 — GREATEST UPDATE ]</code>
+</h2>
+
+### 1. Braille Spinners Wrapped in `[ ]` with Osaka-Jade Colour
+
+| Before | After |
+|--------|-------|
+| `⠋` plain spinner | `[⠋]` in osaka-jade bright `#50dca0` |
+| `⠋ ⠏` dual spinners | `[⠋ ⠏]` in osaka-jade bright `#50dca0` |
+| Gruvbox earthy tones | Lavender labels + osaka-jade accents |
+
+- ScanBoard header spinner renders as `[⠋]` spinning in terminal
+- AgentBar dual spinners render as `[⠋ ⠏]` during parallel agent execution
+- Consistent `[bracket]` wrapping for all animated indicators
+
+**Files:** `src/cli/display.rs`
+
+---
+
+### 2. Full Palette Migration — Gruvbox → Osaka-Jade & Lavender
+
+All 20 `GB_*` (Gruvbox Evergreen) colour constants have been **removed entirely** and replaced with a clean semantic colour system.
+
+| Component | Before (Gruvbox) | After (Osaka-Jade) |
+|-----------|-----------------|-------------------|
+| Palette base | Olive / brown earth tones | Deep navy `#1a1a2e` |
+| Primary accent | `GB_GRN_B` `#b8bb26` | `OSAKA_JADE_B` `#50dca0` |
+| Labels | `GB_GRY` `#928374` | `COL_DIM` `#788298` |
+| Critical | `GB_RED_B` `#fb4934` | `COL_CRIT` `#ff3232` |
+| High | `GB_RED` `#cc241d` | `COL_HIGH` `#ff6450` |
+| Medium | `GB_YLW` `#d79921` | `COL_MED` `#ffb432` |
+| Low | `GB_ORG` `#fe8019` | `COL_LOW` `#f0a030` |
+| Info | `GB_BLU` `#458588` | `COL_INFO` `#aac3eb` |
+| Dim / secondary | — | `COL_DIM` `#788298` |
+| Title / labels | — | Lavender `#beb0eb` |
+| Body text | — | Lavender-Blue `#aac3eb` |
+
+```
+[CRITICAL] → #ff3232  (bright red)
+[  HIGH  ] → #ff6450  (warm orange-red)
+[ MEDIUM ] → #ffb432  (golden amber)
+[  LOW   ] → #f0a030  (warm orange)
+[  INFO  ] → #aac3eb  (soft lavender-blue)
+```
+
+**Files:** `src/cli/display.rs`, `src/main.rs`, `src/hybrid.rs`
+
+---
+
+### 3. Real-Time `det:` / `err:` Progress During Fuzzing
+
+The progress display no longer freezes at `det:0  err:0` during URL processing.
+
+- `prog_det` and `prog_err` atomics are updated **live** inside `fuzz_url()` after every detection and every network error
+- The ScanBoard display ticks up in real time as findings accumulate
+- Zero stale display — users see progress as it happens
+
+**Files:** `src/hybrid.rs` (lines in `fuzz_url()` function)
+
+---
+
+### 4. Evidence = Real Response Body Content
+
+Finding evidence for XSS, LFI, CMDi, and SSTI now carries **actual response body text** (first 200 bytes) instead of the bare string `"HTTP 200"`.
+
+```rust
+// Before (useless for confirmation)
+evidence: "HTTP 200"
+
+// After (meaningful for pattern matching)
+evidence: "<html><script>alert('XSS')</script>..."
+```
+
+This enables the `Confirm` module to perform accurate string-based validation.
+
+**Files:** `src/hybrid.rs`
+
+---
+
+### 5. Confirm::reduce_false_positive() Overhaul
+
+| Change | Detail |
+|--------|--------|
+| Body evidence check | Findings with `evidence.len() > 10` and not containing `"HTTP "` pass through automatically |
+| Severity preservation | Critical and High severity findings are always preserved |
+| XSS patterns added | `<svg`, `<img`, `<iframe` detection |
+| CMDi patterns added | `root:`, `nobody:` patterns in response |
+| LFI patterns added | `daemon:x:`, `bin:x:` patterns in response |
+
+**Files:** `src/detection/confirm.rs`
+
+---
+
+### 6. SQLi Regex Expansion
+
+10 new SQL error detection patterns added to `matcher.rs`:
+
+| Pattern | Detects |
+|---------|---------|
+| `mysqli_fetch` | PHP MySQLi fetch errors |
+| `Unclosed quotation` | MS SQL unclosed quotes |
+| `Incorrect syntax` | MS SQL syntax errors |
+| `SQLSTATE` | Generic SQL state errors |
+| `pg_query` | PostgreSQL query errors |
+| `ODBC Driver` | ODBC driver errors |
+| `Microsoft OLE DB` | OLE DB provider errors |
+| `java.sql.*` | Java SQL exceptions |
+| `Warning.*mysql` | MySQL warnings |
+| `syntax error` | Generic SQL syntax errors |
+
+**Files:** `src/detection/matcher.rs`
+
+---
+
+### 7. WAF Gate Tamed — Fewer False Positives
+
+`is_waf_block()` now requires **BOTH** `"waf"` **AND** `"blocked"` / `"denied"` to appear together in the response.
+
+- No longer triggers on common words like `"protection"`, `"challenge"`, or `"blocked"` appearing alone
+- Applies to both `analyzer.rs` and `hybrid.rs` WAF detection paths
+- Net result: fewer false negatives, more accurate WAF identification
+
+**Files:** `src/detection/analyzer.rs`, `src/hybrid.rs`
+
+---
+
+### 8. Hypersecurity Kernel Module (`libhypersecurity.so`)
+
+A memory-safety kernel module compiled as a separate `cdylib` workspace member:
 
 | Export | Signature | Purpose |
 |--------|-----------|---------|
-| `proxy_ping` | `() -> u32` | Health check — returns version string length |
-| `proxy_route` | `(target, *mut Config) -> i32` | Selects proxy type (HTTP/HTTPS/SOCKS5) based on target URL |
-| `proxy_auth` | `(username, password) -> i32` | Validates and Base64-encodes proxy credentials |
-| `proxy_obfuscate` | `(input, *mut buf, max_len) -> i32` | XOR (0xAA) obfuscates proxy URLs |
-| `proxy_deobfuscate` | `(input, *mut buf, max_len) -> i32` | Reverses obfuscation |
-| `proxy_rotation_seed` | `() -> u64` | Time-based seed for proxy rotation pool |
-| `proxy_validate` | `(*const Config) -> i32` | Validates proxy configuration struct (host, port) |
+| `hs_check_leaks` | `() -> bool` | Scans `/proc/self/maps` for W+X memory regions |
+| `hs_sanitise_cache` | `() -> bool` | Writes to `/proc/sys/vm/drop_caches` |
+| `hs_memory_barrier` | `() -> bool` | Issues `atomic_thread_fence(SeqCst)` |
+| `hs_version` | `() -> *const c_char` | Returns version string `"8.5.0"` |
 
-The .so is built with `opt-level = "z"`, `lto = "fat"`, `panic = "abort"`, and stripped — resulting in a **278KB** binary footprint.
+- Loaded at runtime via `libloading` — **zero-link dependency**
+- Silently no-ops for non-root users (cache sanitisation)
+- ~1.9 MB compiled binary
 
-**2. `src/http/proxy_loader.rs` (the loader)**
-
-Loaded at startup via `libloading`. The flow:
-
-```
-main() → ensure_proxy_library()
-           │
-           ├─ Finds .so (CWD → /usr/lib/ → /usr/local/lib/ → /opt/oxide/lib/ → LD_LIBRARY_PATH)
-           ├─ Opens via libloading::Library
-           ├─ Verifies all 7 symbols exist
-           ├─ Stores Arc<Library> in OnceLock global
-           └─ Prints version on success, exits on failure
-```
-
-Once loaded, safe Rust wrappers (`proxy_route()`, `proxy_auth()`, etc.) call the C ABI functions with proper `CString` marshalling. The global `OnceLock` ensures the library is loaded **once** at startup — subsequent calls are lock-free reads.
-
-### Why a Shared Library?
-
-- **Runtime enforcement** — binary refuses to run without it; prevents standalone binary abuse
-- **Updatable independently** — replace the .so without recompiling the scanner
-- **FFI sandbox** — proxy logic runs in a separate compilation unit with `panic=abort`
-- **Obfuscation isolation** — XOR keys live in the .so, not in the main binary
+**Files:** `hypersecurity/Cargo.toml`, `hypersecurity/src/lib.rs`
 
 ---
 
-## 🎯 Usage
+### 9. Build Configuration & Cleanup
 
-```bash
-oxide --url <TARGET> [OPTIONS]
-```
+| Change | Detail |
+|--------|--------|
+| Workspace members | `hypersecurity` + `oxide-proxy` defined in `Cargo.toml` |
+| Build jobs | `.cargo/config.toml` sets `jobs = 2` for constrained environments |
+| Profile settings | All release profiles lifted to workspace root (no more warnings) |
+| Zero warnings | `cargo check` and `cargo build --release -j2` pass with zero warnings |
 
-### Basic Scan
-
-```bash
-oxide --url https://target.example.com
-```
-
-### Full Scan with All Modules
-
-```bash
-oxide --url https://target.example.com --modules all --threads 20 --verbose
-```
-
-### Targeted Module Scan
-
-```bash
-oxide --url https://target.example.com --modules sqli,xss,cors,tls
-```
-
-### Save Report
-
-```bash
-oxide --url https://target.example.com --output report.html --format html
-```
-
-### Zero-Day Detection Mode
-
-```bash
-oxide --url https://target.example.com --zeroday --verbose
-```
-
-### Stealth / Rate-Limited Scan
-
-```bash
-oxide --url https://target.example.com --rate-limit 5 --silent-mode
-```
-
-### With Authentication
-
-```bash
-oxide --url https://target.example.com \
-  --cookie "session=abc123" \
-  --header "Authorization: Bearer <token>"
-```
+**Files:** `Cargo.toml`, `.cargo/config.toml`
 
 ---
 
-## 🧰 CLI Reference
+### 10. Duration Enforcement
 
-| Flag | Default | Description |
-|------|---------|-------------|
-| `-u, --url` | required | Target URL |
-| `-t, --threads` | `20` | Concurrent worker threads |
-| `-o, --output` | — | Output file path |
-| `-f, --format` | `json` | Report format: `json`, `html`, `csv`, `xml` |
-| `--modules` | `all` | Comma-separated module list |
-| `--exclude` | — | Modules to skip |
-| `--exploitation-level` | `50` | Aggression level (1–100) |
-| `--payload-limit` | `50` | Max payloads per endpoint |
-| `--crawl-depth` | `3` | Spider recursion depth |
-| `--max-urls` | `100` | Max URLs to crawl |
-| `--rate-limit` | `0` (unlimited) | Requests per second cap |
-| `--proxy` | — | HTTP/HTTPS proxy URL |
-| `--user-agent` | — | Custom User-Agent string |
-| `--cookie` | — | Session cookies |
-| `--header` | — | Extra request headers (repeatable) |
-| `--follow-redirects` | false | Follow HTTP redirects |
-| `--max-redirects` | `10` | Max redirect chain depth |
-| `--duration` | `0` (unlimited) | Max scan duration in seconds with live countdown |
-| `--insecure` | false | Disable TLS verification |
-| `--download` | false | Auto-save discovered sensitive files |
-| `--zeroday` | false | Enable zero-day ML detection |
-| `--train` | false | Train ML classifier from live scanner results |
-| `--insta` | false | Enable Instagram OSINT module |
-| `--session` | false | Enable session hijack testing module |
-| `--silent-mode` | false | Suppress non-essential output |
-| `-v, --verbose` | false | Full verbose output |
+The `--duration` flag now works precisely — no more 5-second grace period:
 
-### Available Modules
-
-```
-all · engine · static · agent · body · fingerprint · tls · common
-cors · creds · sqli · xss · lfi · path-traversal · cmd-injection
-blind-sqli · db-fingerprint · parameter-discovery · fuzz · insta
-session · zeroday · train
-```
+- Global duration timer before target loop in multiattack mode
+- Per-payload deadline checks inside `fuzz_url()`
+- Stops within ~1 second of the configured time limit
+- Crawl phase checks deadline before and after each URL fetch
 
 ---
 
-## 🏗️ Architecture
+### 11. Request Counting Fixed
+
+- `total_reqs` now properly accumulates `scanner.req_count` per target in multiattack mode
+- SCAN COMPLETE displays actual HTTP request count (not finding count)
+- `HybridScanner.req_count` is an `AtomicUsize` tracking every request in real time
+
+---
+
+### 12. Findings Always Printed After Scan
+
+- Removed the `args.verbose` gate that suppressed findings in non-verbose mode
+- Removed the `findings.len() < 5` shortcut
+- SCAN COMPLETE uses ANSI-aware `vis()` for correct right-padding
+- All findings display unconditionally at scan end
+
+---
+
+### 13. CE Phase Deadline Checks
+
+8 new `check_timeout!()` macro calls inserted across all CE scan phases:
 
 ```
-OxideCommunityEdtionv8.5.0/
+RECON · TLS · CORS · COMMON · CREDS · PARAMS · FILTER · INSTA · SESSION
+ML · Agent · Parallel · Body
+```
+
+Total phases with deadline enforcement: **11**
+
+---
+
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ VULNERABILITY SCANNERS ]</code>
+</h2>
+
+<table>
+<tr><th width="180">Module</th><th width="100">Flag</th><th>Description</th></tr>
+
+<tr>
+<td><code style="color:#ff3232;">SQL Injection</code></td>
+<td><code>sqli</code></td>
+<td>Error-based, blind boolean, time-based blind SQLi detection with 20+ regex patterns</td>
+</tr>
+
+<tr>
+<td><code style="color:#ff6450;">Blind SQLi</code></td>
+<td><code>blind-sqli</code></td>
+<td>Timing-based blind SQLi with statistical response time analysis</td>
+</tr>
+
+<tr>
+<td><code style="color:#ff6450;">XSS</code></td>
+<td><code>xss</code></td>
+<td>Reflected, stored, and DOM-based cross-site scripting detection</td>
+</tr>
+
+<tr>
+<td><code style="color:#ffb432;">LFI</code></td>
+<td><code>lfi</code></td>
+<td>Local File Inclusion with path traversal chain mutation</td>
+</tr>
+
+<tr>
+<td><code style="color:#ffb432;">Path Traversal</code></td>
+<td><code>path-traversal</code></td>
+<td>Directory traversal across Linux/Windows path variants</td>
+</tr>
+
+<tr>
+<td><code style="color:#f0a030;">Command Injection</code></td>
+<td><code>cmd-injection</code></td>
+<td>OS command injection with blind and reflected detection</td>
+</tr>
+
+<tr>
+<td><code style="color:#f0a030;">CORS</code></td>
+<td><code>cors</code></td>
+<td>Cross-Origin Resource Sharing misconfiguration assessment</td>
+</tr>
+
+<tr>
+<td><code style="color:#aac3eb;">TLS Audit</code></td>
+<td><code>tls</code></td>
+<td>Full TLS/SSL security audit — protocols, ciphers, certificates</td>
+</tr>
+
+<tr>
+<td><code style="color:#aac3eb;">Default Creds</code></td>
+<td><code>creds</code></td>
+<td>6000+ default credential combinations against common login endpoints</td>
+</tr>
+
+<tr>
+<td><code style="color:#aac3eb;">Common Apps</code></td>
+<td><code>common</code></td>
+<td>Nikto-style common application checks — 2790+ tests</td>
+</tr>
+
+<tr>
+<td><code style="color:#788298;">DB Fingerprint</code></td>
+<td><code>db-fingerprint</code></td>
+<td>Database engine fingerprinting via error messages and banner grabbing</td>
+</tr>
+
+<tr>
+<td><code style="color:#788298;">Instagram OSINT</code></td>
+<td><code>insta</code></td>
+<td>Instagram profile intelligence — followers, private status, profile picture</td>
+</tr>
+
+<tr>
+<td><code style="color:#788298;">Session Hijack</code></td>
+<td><code>session</code></td>
+<td>Cookie security flags, session fixation, token predictability</td>
+</tr>
+
+<tr>
+<td><code style="color:#50dca0;">ML Trainer</code></td>
+<td><code>train</code></td>
+<td>Train Random Forest / SVM classifier from live scanner results</td>
+</tr>
+
+<tr>
+<td><code style="color:#50dca0;">Zero-Day ML</code></td>
+<td><code>zeroday</code></td>
+<td>Anomaly detection via statistical modelling — <code>smartcore</code> + <code>linfa</code></td>
+</tr>
+
+<tr>
+<td><code style="color:#50dca0;">Hypersecurity</code></td>
+<td><code>hypersecurity</code></td>
+<td>Kernel-level memory safety & cache sanitisation (shared library)</td>
+</tr>
+</table>
+
+---
+
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ AI / ML ENGINE ]</code>
+</h2>
+
+| Component | Library | Purpose |
+|-----------|---------|---------|
+| **Zero-Day Detection** | `smartcore` (Random Forest, SVM) | Statistical anomaly detection on response patterns |
+| **Pattern Learner** | Custom `ngram` analyser | Adaptive payload mutation from response analysis |
+| **Exploit Analyzer** | Custom heuristic engine | AI-driven exploit chain analysis |
+| **Response Analyzer** | Custom behavioural model | HTTP response behavioural fingerprinting |
+| **Payload Mutator** | Custom genetic algorithm | ML-guided payload evolution |
+| **linfa Clustering** | `linfa-clustering` | Unsupervised anomaly grouping via K-Means / DBSCAN |
+| **Stats Engine** | `statrs` | Statistical distribution modelling for outlier detection |
+
+---
+
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ ARCHITECTURE ]</code>
+</h2>
+
+```
+oxide-v8.5.0/
 ├── src/
-│   ├── main.rs              # Entry point & banner (Evergreens)
-│   ├── hybrid.rs            # HybridScanner orchestrator (12-phase scan pipeline)
-│   ├── agent.rs             # AgentPool — parallel agent-based scanning
-│   ├── crawls.rs            # Async web crawler
-│   ├── recon.rs             # Reconnaissance module
-│   ├── db.rs                # Encrypted SQLite DB loader (XOR decrypt + rusqlite)
-│   ├── filter.rs            # False-positive filter
-│   ├── lib.rs               # Crate root — all `pub mod` declarations
+│   ├── main.rs              # Entry point, arg parsing, scan orchestration
+│   ├── lib.rs               # Module tree and common exports
+│   ├── hybrid.rs            # Core scan orchestration — fuzzing, multiattack, duration
+│   ├── crawls.rs            # Web crawling and link extraction
+│   ├── db.rs                # Encrypted SQLite database (XOR + magic header)
+│   ├── filter.rs            # Response filtering and normalisation
+│   ├── recon.rs             # Network recon (pnet raw TCP on Linux, HTTP passive on Windows)
 │   │
-│   ├── insta/               # Instagram OSINT
-│   │   └── mod.rs           # follower_count, is_private, download_profile_pic
-│   ├── session_hijack/      # Session hijack testing
-│   │   └── mod.rs           # cookie flags, fixation, predictability
+│   ├── cli/
+│   │   ├── args.rs          # Clap CLI argument definitions
+│   │   ├── display.rs       # ScanBoard UI, colours, spinners, finding output
+│   │   └── parser.rs        # Custom argument parser
 │   │
-│   ├── core/                # Scan engine core
-│   │   ├── engine.rs        # ScanEngine
-│   │   ├── scanner.rs       # Scanner primitives
-│   │   ├── worker.rs        # ParallelScanner + WorkerPool
-│   │   ├── coordinator.rs   # Progress tracking
-│   │   └── dispatcher.rs    # Parallel HTTP dispatcher
+│   ├── detection/
+│   │   ├── analyzer.rs      # Finding struct, Severity enum, WAF detection
+│   │   ├── confirm.rs       # False positive reduction, evidence validation
+│   │   ├── matcher.rs       # SQLi/LFI/XSS/CMDi regex detection patterns
+│   │   └── confirm.rs       # Timing analysis for blind vulnerabilities
 │   │
-│   ├── scanner/             # Vulnerability-specific scanners
-│   │   ├── sqli_scanner.rs
-│   │   ├── blind_sqli_scanner.rs
-│   │   ├── xss_scanner.rs
-│   │   ├── lfi_scanner.rs
-│   │   ├── path_traversal_scanner.rs
-│   │   ├── cmd_injection_scanner.rs
-│   │   ├── cors_scanner.rs
-│   │   ├── tls_scanner.rs
-│   │   ├── default_creds_scanner.rs
-│   │   ├── common_app_scanner.rs
-│   │   ├── db_fingerprinter.rs
-│   │   └── precision.rs
+│   ├── scanner/
+│   │   ├── sqli_scanner.rs  # SQL injection scanner
+│   │   ├── xss_scanner.rs   # Cross-site scripting scanner
+│   │   ├── lfi_scanner.rs   # Local file inclusion scanner
+│   │   ├── cmdi_scanner.rs  # Command injection scanner
+│   │   ├── cors_scanner.rs  # CORS misconfiguration scanner
+│   │   ├── tls_scanner.rs   # TLS/SSL audit scanner
+│   │   ├── creds_scanner.rs # Default credential brute-forcer (6000+ combos)
+│   │   ├── common_scanner.rs# Nikto-style common checks (2790+ tests)
+│   │   └── fingerprint.rs   # DB and server fingerprinting
 │   │
-│   ├── ai/                  # AI-powered analysis
-│   │   ├── exploit_analyzer.rs
-│   │   ├── response_analyzer.rs
-│   │   ├── payload_mutator.rs
-│   │   └── pattern_learner.rs
+│   ├── http/
+│   │   ├── client.rs        # Async HTTP client (reqwest-based)
+│   │   ├── proxy.rs         # Oxide-proxy library loader
+│   │   └── tls.rs           # TLS configuration and certificate handling
 │   │
-│   ├── zero_DAY/            # Zero-day ML detection
-│   │   ├── engine.rs        # ZeroDayEngine
-│   │   ├── classifier.rs    # ML classifier (Random Forest / SVM)
-│   │   ├── baseline.rs      # Behavioral baseline builder
-│   │   ├── anomaly.rs       # Anomaly scoring
-│   │   ├── features.rs      # Feature extraction
-│   │   └── trainer.rs       # ML trainer — auto-index scanners → train → export model
-│   │
-│   ├── advanced/            # Advanced offensive features
-│   │   ├── api_fuzzer.rs
-│   │   ├── evasion.rs
-│   │   ├── websocket.rs
-│   │   ├── cluster.rs
-│   │   ├── session.rs
-│   │   ├── ml_detector.rs
-│   │   ├── crawler_js.rs
-│   │   ├── rate_limiter.rs
-│   │   ├── cache.rs
-│   │   └── plugin.rs
-│   │
-│   ├── payload/             # Payload generation & mutation
-│   │   ├── generator.rs
-│   │   ├── mutator.rs
-│   │   ├── fuzzer.rs
-│   │   ├── encoder.rs
-│   │   ├── sql_injection.rs
-│   │   ├── xss.rs
-│   │   ├── lfi.rs
-│   │   ├── command_injection.rs
-│   │   └── path_traversal.rs
-│   │
-│   ├── detection/           # Detection & analysis
-│   │   ├── analyzer.rs      # Finding + Severity types
-│   │   ├── signatures.rs    # Vulnerability signature DB
-│   │   ├── behavior.rs      # Behavioral analysis
-│   │   ├── timing.rs        # Time-based detection
-│   │   ├── confirm.rs       # Vulnerability confirmation
-│   │   └── matcher.rs
-│   │
-│   ├── http/                # HTTP layer
-│   │   ├── client.rs        # Async HTTP client (reqwest)
-│   │   ├── request.rs
-│   │   ├── response.rs
-│   │   ├── headers.rs
-│   │   ├── cookies.rs
-│   │   ├── redirect.rs
-│   │   ├── tls.rs
-│   │   ├── useragents.rs
-│   │   └── proxy_loader.rs  # Dynamic library loader (FFI wrappers)
-│   │
-│   ├── report/              # Report generation
-│   │   ├── generator.rs
-│   │   ├── json.rs
-│   │   ├── html.rs
-│   │   ├── csv.rs
-│   │   └── xml.rs
-│   │
-│   ├── cli/                 # CLI interface
-│   │   ├── args.rs          # Clap argument definitions
-│   │   ├── display.rs       # Terminal display engine (Evergreens)
-│   │   ├── output.rs
-│   │   ├── progress.rs
-│   │   ├── spinner.rs
-│   │   ├── colors.rs
-│   │   ├── config.rs
-│   │   └── parser.rs
-│   │
-│   └── utils/               # Utilities
-│       ├── url.rs
-│       ├── encoding.rs      # Base64, hex, URL, HTML, unicode
-│       ├── time.rs
-│       └── downloader.rs
+│   ├── ai/                  # ML models, pattern learners, exploit analysers
+│   ├── advanced/            # Fuzzer, evasion engine, rate limiter, cluster
+│   ├── zero_day/            # ML-driven zero-day anomaly detection + trainer
+│   ├── payload/             # Payload generation, mutation, encoding
+│   ├── report/              # JSON / HTML / CSV / XML report generators
+│   ├── agent.rs             # Autonomous agent behaviour
+│   ├── insta/               # Instagram OSINT scraping module
+│   └── session_hijack/      # Session hijack testing module
 │
-└── oxide-proxy/             # Proxy shared library (cdylib)
-    ├── Cargo.toml
-    └── src/
-        └── lib.rs           # 7 extern "C" exports
-
+├── hypersecurity/           # Kernel module — memory safety .so
+│   ├── Cargo.toml
+│   └── src/lib.rs
+│
+├── oxide-proxy/             # Proxy routing, rotation, authentication .so
+├── dist/                    # Distribution package scripts
+├── docs/
+│   └── CHANGELOG.md         # Full change history
+│
+├── Cargo.toml               # Workspace root
+├── .cargo/config.toml       # Build config (jobs = 2)
+├── README.md                # Quick-start documentation
+├── RELEASE.md               # Release notes (detailed)
+├── RELEASE_NOTES.md         # Release notes (web-friendly)
+├── GITHUB.md                # ← This file: comprehensive release documentation
+├── LICENSE                  # Proprietary software license
+└── ANNOUNCEMENT.txt         # Final release announcement
 ```
 
 ---
 
-## 📋 Changelog — v8.5.0
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ QUICK START ]</code>
+</h2>
 
-### Duration Enforcement
-- **Global duration timer** added before multiattack target loop — skips remaining targets if time exhausted
-- **Per-payload deadline checks** inside `fuzz_url` — returns early when deadline passed
-- **Reduced grace period** from 5s to 1s in `check_duration` — scans stop within seconds of the limit
-- **Crawl phase deadline checks** — verifies time before and after crawling, returns empty URL list if expired
+### Linux
 
-### Request Counting Fixed
-- Multiattack mode: `total_reqs` accumulates `scanner.req_count` per target
-- `hybrid_scanner.req_count` (AtomicUsize) tracks every live HTTP request
-- SCAN COMPLETE now displays **actual HTTP request count** instead of `findings.len()`
-- Early returns in `run_hybrid_scan` propagate accumulated request count instead of 0
+```bash
+# 1. Extract
+unzip oxide-v8.5.0-linux.zip
+cd oxide-v8.5.0-linux
 
-### Full Color Audit — Osaka-Jade & Lavender Palette
-- `render_scan_bar` / `server_badge` / `WorkerSlot` / `AgentBar` / `Colors` / `sev_badge` / `print_finding` — all updated to jade `(0,180,120)` / bright jade `(80,240,180)` / lavender `(196,167,231)`
-- `Colors::warning` → light cyan `(0,200,255)`, `Colors::brand` → matrix green `(0,220,80)`
-- Severity badges: `▌CRITICAL▐` → `[CRIT]`, low severity summary GB_AQU → GB_GRN (jade)
-- URLs in findings: `GB_BLU_B` → light cyan `(0,200,255)`
-- SCAN COMPLETE: jade `─` borders with `│` corners, ANSI-aware `vis()` padding
-- Multiattack text: `GB_RED_B` → `OSAKA_JADE_B`
+# 2. Make executable
+chmod +x oxide
 
-### Findings Display Fixed
-- **Always print findings** after scan — removed `args.verbose` gate and `findings.len() < 5` shortcut
-- SCAN COMPLETE redesigned with proper ANSI-aware right-alignment
+# 3. Quick scan
+./oxide --url https://target.com --modules all
 
-### Code Cleanup
-- Unused imports removed: `GB_RED_B` from `main.rs`
-- Zero compiler warnings on every build
+# 4. Full scan with report
+./oxide --url https://target.com \
+  --modules all \
+  --verbose \
+  --output report.html \
+  --format html \
+  --duration 600
 
-### Pro Edition (v9.1.0) Improvements
-- Welcome screen: dividers/title → jade, capabilities → bright lavender/cyan, INIT bar → jade gradient
-- Target Information block: `─` borders with `│` corners, lavender title
-- Verbose mode: section headers per test type (`+ --- /SQLi ------ > url`) with per-payload GET lines
-- Non-verbose fuzzing header: STATUS/METHOD/LINES/WORDS/CHARS/TYPE columns in jade
-- Ai-Powered FUZZING title: jade `(0,180,120)`
-- SCAN COMPLETE: jade `─` borders, `│` corners, `[CRIT]`/`[HIGH]`/`[MEDIUM]`/`[LOW]`/`[INFO]` badges
+# 5. Targeted scan
+./oxide --url https://target.com/page.php?id=1 \
+  --modules sqli,xss,lfi \
+  --payload-limit 20 \
+  --exploitation-level 75
 
----
+# 6. Multi-attack (up to 3 targets)
+./oxide --url https://target1.com --url https://target2.com \
+  --multiattack
 
-## 🔬 Tech Stack
+# 7. Load hypersecurity module
+cargo build -p hypersecurity --release
+sudo cp target/release/libhypersecurity.so /usr/lib/
+```
 
-| Crate | Purpose |
-|-------|---------|
-| `tokio` | Async runtime |
-| `reqwest` | HTTP client (gzip, brotli, cookies) |
-| `clap` | CLI argument parsing |
-| `scraper` | HTML parsing & crawling |
-| `smartcore` | ML algorithms (Random Forest, SVM) |
-| `linfa` | ML clustering & preprocessing |
-| `ndarray` | N-dimensional arrays for ML |
-| `statrs` | Statistical distributions |
-| `rustls` | TLS implementation |
-| `trust-dns-resolver` | DNS resolution |
-| `governor` | Rate limiting |
-| `libloading` | Dynamic library loading (proxy .so, plugins) |
-| `base64` | Proxy credential encoding |
-| `serde` / `serde_json` | Serialization |
-| `colored` | Terminal color output |
-| `regex` | Pattern matching |
-| `sha2` / `sha1` / `md5` | Cryptographic hashing |
-| `uuid` | Unique scan identifiers |
-| `chrono` | Timestamps & duration |
-| `rusqlite` | Embedded SQLite database engine (bundled) |
-| `csv` | CSV parsing (legacy fallback) |
+### Windows
+
+```powershell
+# 1. Extract
+Expand-Archive oxide-v8.5.0-windows.zip
+cd oxide-v8.5.0-windows
+
+# 2. Basic scan (proxy DLL must be in same folder)
+.\oxide.exe --url https://target.com --modules all --verbose
+
+# 3. Save report
+.\oxide.exe --url https://target.com --output report.json --format json
+```
 
 ---
 
-## 👤 Author
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ CLI REFERENCE ]</code>
+</h2>
 
-<div align="center">
+<table>
+<tr><th>Flag</th><th>Default</th><th>Description</th></tr>
 
-**[khaninkali](https://github.com/hypersecuritylabs)** · *[HyperSecurityLabs](https://hypersecuritylabs.netlify.app)*
-
-[![GitHub](https://img.shields.io/badge/GitHub-@hypersecuritylabs-00b478?style=for-the-badge&logo=github&logoColor=c9d1c3)](https://github.com/hypersecuritylabs)
-[![Website](https://img.shields.io/badge/Website-hypersecuritylabs.netlify.app-00c8ff?style=for-the-badge&logo=google-chrome&logoColor=c9d1c3)](https://hypersecuritylabs.netlify.app)
-[![Telegram](https://img.shields.io/badge/Telegram-@hypersecurity__offsec-c4a7e7?style=for-the-badge&logo=telegram&logoColor=c9d1c3)](https://t.me/hypersecurity_offsec)
-
-*"Scan everything. Trust nothing. Patch accordingly."*
-
-</div>
+<tr><td><code>-u, --url</code></td><td><em>(required)</em></td><td>Target URL (up to 3 with <code>--multiattack</code>)</td></tr>
+<tr><td><code>--modules</code></td><td><code>all</code></td><td>Comma-separated: <code>engine,static,agent,body,fingerprint,tls,common,cors,creds,insta,session,sqli,xss,lfi,db-fingerprint</code></td></tr>
+<tr><td><code>-t, --threads</code></td><td><code>20</code></td><td>Concurrent worker threads (1-100)</td></tr>
+<tr><td><code>--payload-limit</code> / <code>--payloads</code></td><td><code>50</code></td><td>Max payloads per test point</td></tr>
+<tr><td><code>--exploitation-level</code> / <code>--exploitation</code></td><td><code>50</code></td><td>Aggression level (1-100)</td></tr>
+<tr><td><code>--duration</code></td><td><code>0</code> (unlimited)</td><td>Max scan duration in seconds</td></tr>
+<tr><td><code>-o, --output</code></td><td><em>stdout</em></td><td>Output file path</td></tr>
+<tr><td><code>-f, --format</code></td><td><code>json</code></td><td>Report format: <code>json</code>, <code>html</code>, <code>csv</code>, <code>xml</code></td></tr>
+<tr><td><code>--rate-limit</code></td><td><code>0</code> (unlimited)</td><td>Requests per second cap</td></tr>
+<tr><td><code>--proxy</code></td><td><em>none</em></td><td>Route through proxy server (URL)</td></tr>
+<tr><td><code>--user-agent</code></td><td><em>default</em></td><td>Custom User-Agent string</td></tr>
+<tr><td><code>--cookie</code></td><td><em>none</em></td><td>Cookie string for authenticated scans</td></tr>
+<tr><td><code>--header</code></td><td><em>none</em></td><td>Extra HTTP headers</td></tr>
+<tr><td><code>--follow-redirects</code></td><td><code>false</code></td><td>Follow HTTP redirects</td></tr>
+<tr><td><code>--max-redirects</code></td><td><code>10</code></td><td>Max redirect chain depth</td></tr>
+<tr><td><code>--insecure</code></td><td><code>false</code></td><td>Skip SSL certificate verification</td></tr>
+<tr><td><code>--crawl-depth</code></td><td><code>3</code></td><td>How deep the crawler goes</td></tr>
+<tr><td><code>--max-pages</code></td><td><code>100</code></td><td>Max pages to crawl</td></tr>
+<tr><td><code>--zeroday</code></td><td><code>false</code></td><td>Enable zero-day ML detection</td></tr>
+<tr><td><code>--train</code></td><td><code>false</code></td><td>Train ML classifier from live results</td></tr>
+<tr><td><code>--insta</code></td><td><code>false</code></td><td>Instagram OSINT module</td></tr>
+<tr><td><code>--session</code></td><td><code>false</code></td><td>Session hijack testing</td></tr>
+<tr><td><code>-v, --verbose</code></td><td><code>false</code></td><td>Full verbose output</td></tr>
+<tr><td><code>--multiattack</code></td><td><code>false</code></td><td>Scan up to 3 targets concurrently</td></tr>
+</table>
 
 ---
 
-## ⚖️ License & Legal
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ DISPLAY & STYLE SYSTEM ]</code>
+</h2>
 
-**Proprietary Software License** — Copyright © 2024-2025 khaninkali · HyperSecurityLabs · All Rights Reserved
+### Colour Palette
 
-See [`LICENSE`](LICENSE) for full terms. In short:
+```rust
+// Semantic severity colours — applied everywhere
+COL_CRIT  = (255,  50,  50)  // #ff3232  — bright red for critical
+COL_HIGH  = (255, 100,  80)  // #ff6450  — orange-red for high
+COL_MED   = (255, 180,  50)  // #ffb432  — golden amber for medium
+COL_LOW   = (240, 160,  48)  // #f0a030  — warm orange for low
+COL_INFO  = (170, 195, 235)  // #aac3eb  — soft lavender-blue for info
+COL_DIM   = (120, 130, 150)  // #788298  — muted grey for secondary text
+OSAKA_JADE   = (60, 200, 140)   // #3cc88c  — primary osaka-jade
+OSAKA_JADE_B = (80, 220, 160)   // #50dca0  — bright osaka-jade (accents)
+LAVENDER     = (190, 175, 235)  // #beb0eb  — lavender titles
+LAVENDER_BLUE= (170, 195, 235)  // #aac3eb  — lavender-blue body text
+```
+
+### Severity Badge Format
+
+```
+[CRITICAL] Arbitrary File Read via Path Traversal  // https://target.com/page
+[  HIGH  ] Stored XSS in Comment Field             // https://target.com/post
+[ MEDIUM ] Missing X-Frame-Options Header          // https://target.com/admin
+[  LOW   ] Server Fingerprint: nginx 1.24.0        // https://target.com
+[  INFO  ] TLS Certificate Expires in 30 Days      // https://target.com
+```
+
+- Severity labels centre-padded inside `[ ]` brackets (9 characters wide)
+- Finding title in white bold
+- URL after `//` in italic dim grey
+- Evidence (if present) indented on next line
+
+### Scan UI Components
+
+| Component | Style | Description |
+|-----------|-------|-------------|
+| ScanBoard header | `[⠋]` osaka-jade bright | Scanning progress with spinner |
+| AgentBar | `[⠋ ⠏]` osaka-jade bright | Dual agent execution spinner |
+| Progress bar | `██████░░░░` osaka-jade | URL completion bar |
+| Counters | `det:5 err:2` | Real-time finding/error counters |
+| Section header | `─` osaka-jade bright border | Scan phase transitions |
+| SCAN COMPLETE | `─` osaka-jade bright border | Summary with severity counts |
+
+---
+
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ HYPERSECURITY KERNEL MODULE ]</code>
+</h2>
+
+The `hypersecurity` module is a standalone `cdylib` workspace member providing memory-safety primitives at the kernel level:
+
+### Exports
+
+```c
+// Scan /proc/self/maps for W+X (writable+executable) memory regions
+bool hs_check_leaks(void);
+
+// Trigger kernel cache sanitisation via /proc/sys/vm/drop_caches
+// (requires root — silently no-ops for unprivileged callers)
+bool hs_sanitise_cache(void);
+
+// Issue a SeqCst memory barrier via atomic_thread_fence
+bool hs_memory_barrier(void);
+
+// Return version string "8.5.0"
+const char* hs_version(void);
+```
+
+### Loading
+
+```rust
+// At runtime — no compile-time dependency
+unsafe {
+    let lib = libloading::Library::new("libhypersecurity.so")?;
+    let func: libloading::Symbol<unsafe extern "C" fn() -> bool> =
+        lib.get(b"hs_check_leaks")?;
+    let leaks = func();
+}
+```
+
+### Build
+
+```bash
+cargo build -p hypersecurity --release
+# Output: target/release/libhypersecurity.so (~1.9 MB)
+```
+
+---
+
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ SECURITY HARDENING ]</code>
+</h2>
+
+| Feature | Description |
+|---------|-------------|
+| **XOR Encryption** | SQLite database encrypted with version-tied XOR key |
+| **Magic Header Verification** | Decrypted temp file validated against known header |
+| **Temp File Cleanup** | Decrypted database deleted immediately after loading |
+| **Proxy FFI Sandbox** | `oxide-proxy` compiled as separate unit with `panic=abort` |
+| **Runtime Enforcement** | Binary refuses to start without proxy library |
+| **Hypersecurity .so** | Runtime W+X memory region scanning |
+| **Cache Sanitisation** | Kernel page cache drop via `/proc/sys/vm/drop_caches` |
+| **Proprietary License** | Author name and brand legally protected |
+
+---
+
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ CODE QUALITY ]</code>
+</h2>
+
+- Zero Rust compiler warnings (`cargo check` and `cargo build --release -j2`)
+- Zero `#[allow(dead_code)]` attributes
+- All orphaned duplicate code removed
+- No placeholder stubs, no `todo!()` macros
+- Every module is real, working, production code
+- Full palette migration — zero legacy Gruvbox references remain
+- Workspace-wide profile configuration — no warnings on non-root packages
+
+---
+
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ DISTRIBUTION PACKAGES ]</code>
+</h2>
+
+| Platform | File | Size | Contents |
+|----------|------|------|----------|
+| **Linux** | `oxide-v8.5.0-linux.zip` | ~6.2 MB | `oxide`, `liboxide_proxy.so`, `libhypersecurity.so`, `INSTALL.txt`, `README.md`, `LICENSE`, `RELEASE.txt`, `banner` |
+| **Windows** | `oxide-v8.5.0-windows.zip` | ~5.2 MB | `oxide.exe`, `oxide_proxy.dll`, `INSTALL.txt`, `README.md`, `LICENSE`, `RELEASE.txt`, `banner` |
+
+---
+
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ KNOWN LIMITATIONS ]</code>
+</h2>
+
+<table>
+<tr><th>#</th><th>Limitation</th><th>Platform</th><th>Workaround</th></tr>
+<tr><td>1</td><td><code>pnet</code> raw TCP recon</td><td>Linux only</td><td>Windows uses passive HTTP recon as fallback</td></tr>
+<tr><td>2</td><td>Proxy library required at runtime</td><td>All</td><td>Place <code>liboxide_proxy.so</code> / <code>oxide_proxy.dll</code> next to binary</td></tr>
+<tr><td>3</td><td><code>ring</code> crate + MSVC linker</td><td>Windows MSVC</td><td>Use <code>x86_64-pc-windows-gnu</code> (MinGW) for cross-compilation</td></tr>
+<tr><td>4</td><td>hypersecurity cache sanitisation</td><td>Linux</td><td>Requires root — silently no-ops for unprivileged callers</td></tr>
+</table>
+
+---
+
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ FILES CHANGED IN v8.5.0 ]</code>
+</h2>
+
+<table>
+<tr><th>File</th><th>Change</th></tr>
+<tr><td><code>src/cli/display.rs</code></td><td>Braille in <code>[ ]</code> osaka-jade, full palette migration, GB_* → COL_*, thinner borders</td></tr>
+<tr><td><code>src/cli/args.rs</code></td><td>Added <code>--duration</code> flag, <code>--payloads</code>/<code>--exploitation</code> aliases, thread default 20</td></tr>
+<tr><td><code>src/hybrid.rs</code></td><td>Real-time det/err progress, body evidence, WAF gate fix, duration enforcement, GB_* → COL_*</td></tr>
+<tr><td><code>src/main.rs</code></td><td>GB_* → COL_* imports, findings always printed, request counting fixed</td></tr>
+<tr><td><code>src/detection/confirm.rs</code></td><td>Auto-pass body evidence, expanded XSS/LFI/CMDi patterns</td></tr>
+<tr><td><code>src/detection/matcher.rs</code></td><td>10 new SQLi regex patterns</td></tr>
+<tr><td><code>src/detection/analyzer.rs</code></td><td>WAF gate requires BOTH "waf" + "blocked"/"denied"</td></tr>
+<tr><td><code>src/scanner/sqli_scanner.rs</code></td><td>New signature: <code>exploitation_level</code> + <code>silent_mode</code> parameters</td></tr>
+<tr><td><code>Cargo.toml</code></td><td>Workspace with <code>hypersecurity</code> + <code>oxide-proxy</code> members</td></tr>
+<tr><td><code>.cargo/config.toml</code></td><td>Build <code>jobs = 2</code> for constrained environments</td></tr>
+</table>
+
+### Files Added
+
+<table>
+<tr><th>File</th><th>Description</th></tr>
+<tr><td><code>hypersecurity/Cargo.toml</code></td><td>Hypersecurity .so module manifest (<code>cdylib</code>)</td></tr>
+<tr><td><code>hypersecurity/src/lib.rs</code></td><td>Memory safety & cache sanitisation kernel module (C ABI)</td></tr>
+<tr><td><code>.cargo/config.toml</code></td><td>Build configuration (<code>jobs = 2</code>)</td></tr>
+<tr><td><code>GITHUB.md</code></td><td>Comprehensive GitHub release documentation</td></tr>
+</table>
+
+---
+
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ LICENSE ]</code>
+</h2>
+
+**Proprietary Software License** — Copyright © 2024-2026 khaninkali · HyperSecurityLabs · All Rights Reserved
 
 | Action | Public | HyperSecurity Members |
 |--------|--------|----------------------|
 | View source | ✅ Yes | ✅ Yes |
 | Fork for reference | ✅ Yes | ✅ Yes |
 | Personal / educational use | ✅ Yes | ✅ Yes |
-| Authorized pentesting | ✅ Yes | ✅ Yes |
+| Compile and run | ✅ Yes | ✅ Yes |
 | Modify code | ❌ No | ✅ Yes |
-| Submit PRs / merge | ❌ No (may submit, no merge rights) | ✅ Yes |
-| Remove name / tags / attribution | ❌ No — legal action | ❌ No — never |
-| Rebrand as own work | ❌ No — legal action | ❌ No — never |
-| Sell / monetize | ❌ No — written permission only | ❌ No — written permission only |
-| Redistribute | ❌ No — written permission only | ✅ Yes (with attribution) |
+| Remove author attribution | ❌ **Never** | ❌ **Never** |
+| Rebrand as own work | ❌ **Legal action** | ❌ **Legal action** |
+| Sell / monetize | ❌ Written permission only | ❌ Written permission only |
 
-**Only HyperSecurityLabs members may modify, merge, or redistribute this code. Removing the author name, version tags, or HyperSecurityLabs branding is a direct license violation and will result in legal action.**
+> **Removing the author name ("khaninkali"), HyperSecurityLabs brand, or any copyright notice is a direct violation of this license and will result in legal action.**
 
-> **By using OXIDE, you agree that you have obtained proper authorization for all targets
-> and that you bear full legal and ethical responsibility for your actions.**
+See [LICENSE](./LICENSE) file for full terms.
 
 ---
 
-<div align="center">
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ LEGAL DISCLAIMER ]</code>
+</h2>
 
-*Built with 🦀 Rust · Forged in the offensive security trenches*
+OXIDE is intended **exclusively** for authorized penetration testing, security research, and educational purposes. You are solely responsible for ensuring you have proper authorization before scanning any target.
 
-**[HyperSecurityLabs](https://hypersecuritylabs.netlify.app)** · OXIDE Framework v8.5.0
+Misuse of this tool against systems you do not own or have explicit permission to test is illegal and unethical.
 
-[🐙 GitHub](https://github.com/hypersecuritylabs) · [🌐 Website](https://hypersecuritylabs.netlify.app) · [💬 Telegram](https://t.me/hypersecurity_offsec)
+---
 
-</div>
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ KALI LINUX ]</code>
+</h2>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Kali_Linux-OXIDE_Ready-557C94?style=for-the-badge&logo=kali-linux&logoColor=white&labelColor=1a1a2e" />
+</p>
+
+OXIDE is **purpose-built and battle-tested for Kali Linux**. Whether you're running a full Kali install or a minimal Debian environment:
+
+| Feature | Kali Support |
+|---------|-------------|
+| Raw TCP recon (`pnet`) | ✅ Full support (Linux-native) |
+| Hypersecurity `.so` module | ✅ Native ELF loading |
+| Proxy library (`liboxide_proxy.so`) | ✅ Native shared library |
+| Cross-compilation target | ✅ `x86_64-unknown-linux-gnu` |
+| Recommended install path | `/usr/local/bin/oxide` |
+| Recommended module path | `/usr/local/lib/libhypersecurity.so` |
+
+```bash
+# Quick install on Kali
+sudo cp oxide /usr/local/bin/
+sudo cp libhypersecurity.so /usr/local/lib/
+sudo cp liboxide_proxy.so /usr/local/lib/
+oxide --url https://target.com --modules all
+```
+
+> **Kali Linux** is the industry-standard penetration testing distribution maintained by Offensive Security. OXIDE integrates seamlessly into any Kali workflow — no extra dependencies, no fighting with package managers.
+
+---
+
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ ⭐ STAR THIS PROJECT ]</code>
+</h2>
+
+<p align="center">
+  <a href="https://github.com/hypersecuritylabs/oxide-communityedition-v8.5.0">
+    <img src="https://img.shields.io/badge/%E2%AD%90%20Star%20us%20on%20GitHub-50dca0?style=for-the-badge&labelColor=1a1a2e" alt="Star us on GitHub" />
+  </a>
+</p>
+
+<p align="center" style="color:#aac3eb;">
+  This is the <strong style="color:#50dca0;">final Community Edition release</strong> — free, open to view, and built with countless hours of work.
+  <br/><br/>
+  <span style="color:#788298;">
+    If OXIDE has helped you in a pentest, CTF, or research project,<br/>
+    <strong style="color:#50dca0;">please star the repository</strong> to show your support.
+  </span>
+  <br/><br/>
+  <span style="color:#50dca0;">Every star fuels future Pro Edition development. ★</span>
+</p>
+
+---
+
+<h2 style="color:#50dca0;border-bottom:1px solid #50dca066;">
+  <code>[ CONNECT ]</code>
+</h2>
+
+<p align="center">
+
+| Platform | Link |
+|----------|------|
+| 🐙 **GitHub** | [github.com/hypersecuritylabs](https://github.com/hypersecuritylabs) |
+| 🌐 **Website** | [hypersecuritylabs.netlify.app](https://hypersecuritylabs.netlify.app) |
+| 💬 **Telegram** | [t.me/hypersecurity_offsec](https://t.me/hypersecurity_offsec) |
+| 🐉 **Kali Linux** | [kali.org/tools](https://www.kali.org/tools/) |
+
+</p>
+
+---
+
+> **Special thanks to [lyara](https://github.com/lyara) for development contributions.**
+
+<br/>
+
+<p align="center">
+  <code style="color:#50dca0;background:#1a1a2e;padding:8px 20px;border-radius:6px;border:1px solid #50dca066;">
+    Built with 🦀 Rust · Forged in the offensive security trenches
+  </code>
+  <br/><br/>
+  <strong style="color:#beb0eb;">HyperSecurityLabs · OXIDE Framework v8.5.0</strong>
+  <br/>
+  <span style="color:#788298;"><em>"Scan everything. Trust nothing. Patch accordingly."</em></span>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/END_OF_LINE-50dca0?style=for-the-badge&labelColor=1a1a2e" />
+  <img src="https://img.shields.io/badge/FINAL_RELEASE-ff6450?style=for-the-badge&labelColor=1a1a2e" />
+</p>
