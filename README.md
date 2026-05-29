@@ -12,6 +12,7 @@
 
 [![Rust](https://img.shields.io/badge/Rust-1.75%2B-00b478?style=for-the-badge&logo=rust&logoColor=c9d1c3)](https://rustup.rs/)
 [![Version](https://img.shields.io/badge/version-8.5.0-00b478?style=for-the-badge)](https://github.com/hypersecuritylabs/oxide-communityedition-v8.5.0)
+[![License](https://img.shields.io/badge/license-Proprietary-c4a7e7?style=for-the-badge](LICENSE)
 [![Platform](https://img.shields.io/badge/Linux%20%7C%20Windows-00c8ff?style=for-the-badge)]()
 [![Kali](https://img.shields.io/badge/Kali_Linux-⭐_Star_for_Package-00b478?style=for-the-badge&logo=kalilinux&logoColor=c9d1c3)](https://github.com/hypersecuritylabs/oxide-communityedition-v8.5.0)
 [![Async](https://img.shields.io/badge/async-Tokio-00c8ff?style=for-the-badge&logo=rust&logoColor=c9d1c3)](https://tokio.rs)
@@ -19,13 +20,12 @@
 ### **The Most Powerful AI-Augmented Web Vulnerability Scanner — Built with Rust**
 #### *⭐ Star us on GitHub to help bring OXIDE to Kali Linux packages!*
 #### *Built with 🦀 Rust · Powered by AI/ML · Forged in the Offensive Security Trenches*
-<img width="1440" height="900" alt="Screenshot_2026-05-29_03_36_35" src="https://github.com/user-attachments/assets/b7732d42-b6d1-4713-8d99-970165370984" />
 
 ---
 
 > **⚠️ LEGAL WARNING & COPYRIGHT NOTICE**
 >
-> This tool is developed and maintained by **khaninkali** @ **HyperSecurityLabs**.
+> This tool is developed and maintained by **[khaninkali](https://github.com/hypersecuritylabs)** @ **[HyperSecurityLabs](https://hypersecuritylabs.netlify.app)**.
 > Unauthorized copying, redistribution, or use of this codebase — in whole or in part — without
 > explicit written permission is **strictly prohibited** and may result in legal action.
 >
@@ -103,7 +103,7 @@ From classic SQLi and XSS to zero-day anomaly detection using real ML models —
 
 ## ⭐ Help Bring OXIDE to Kali Linux
 
-OXIDE aims to become an **official Kali Linux package**. Star us on GitHub to show your support — the more stars we get, the higher the priority for Kali inclusion.
+OXIDE aims to become an **official Kali Linux package**. Star us on [GitHub](https://github.com/hypersecuritylabs/oxide-communityedition-v8.5.0) to show your support — the more stars we get, the higher the priority for Kali inclusion.
 
 ```bash
 # Until then, build from source:
@@ -113,7 +113,7 @@ cargo build --release
 ./target/release/oxide --url https://target.com --modules all
 ```
 
-**⭐ Star now → Kali package soon.**
+**[⭐ Star on GitHub](https://github.com/hypersecuritylabs/oxide-communityedition-v8.5.0) → Kali package soon.**
 
 ## 🚀 Installation
 
@@ -567,7 +567,7 @@ OxideCommunityEdtionv8.5.0/
 
 <div align="center">
 
-**khaninkali** · *HyperSecurityLabs*
+**[khaninkali](https://github.com/hypersecuritylabs)** · *[HyperSecurityLabs](https://hypersecuritylabs.netlify.app)*
 
 [![GitHub](https://img.shields.io/badge/GitHub-@hypersecuritylabs-00b478?style=for-the-badge&logo=github&logoColor=c9d1c3)](https://github.com/hypersecuritylabs)
 [![Website](https://img.shields.io/badge/Website-hypersecuritylabs.netlify.app-00c8ff?style=for-the-badge&logo=google-chrome&logoColor=c9d1c3)](https://hypersecuritylabs.netlify.app)
@@ -607,8 +607,10 @@ See [`LICENSE`](LICENSE) for full terms. In short:
 
 <div align="center">
 
-*Built with* 🦀 *Rust · Forged in the offensive security trenches*
+*Built with 🦀 Rust · Forged in the offensive security trenches*
 
-**HyperSecurityLabs** · OXIDE Framework v8.5.0
+**[HyperSecurityLabs](https://hypersecuritylabs.netlify.app)** · OXIDE Framework v8.5.0
+
+[🐙 GitHub](https://github.com/hypersecuritylabs) · [🌐 Website](https://hypersecuritylabs.netlify.app) · [💬 Telegram](https://t.me/hypersecurity_offsec)
 
 </div>
