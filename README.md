@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/status-FINAL%20RELEASE-80dca0?style=for-the-badge&labelColor=1a1a2e" />
   <img src="https://img.shields.io/badge/license-Proprietary-beb0eb?style=for-the-badge&labelColor=1a1a2e" />
   <img src="https://img.shields.io/badge/platform-Linux%20%7C%20Windows-aac3eb?style=for-the-badge&labelColor=1a1a2e" />
-  <img src="https://img.shields.io/badge/Rust-2021-edition-50dca0?style=for-the-badge&labelColor=1a1a2e&logo=rust" />
+  <img src="https://img.shields.io/badge/Rust-2021-50dca0?style=for-the-badge&labelColor=1a1a2e" />
   <img src="https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kali-linux&logoColor=white&labelColor=1a1a2e" />
 </p>
 
