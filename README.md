@@ -63,7 +63,8 @@ OSAKA_JADE_B = #50dca0 | LAVENDER = #beb0eb | LAVENDER_BLUE = #aac3eb
 
 **Findings always printed** — removed `args.verbose` gate and `findings.len() < 5` shortcut. SCAN COMPLETE uses ANSI-aware `vis()` for correct right-padding.
 
-**13-phase deadline checks** — `check_timeout!()` across RECON · TLS · CORS · COMMON · CREDS · PARAMS · FILTER · INSTA · SESSION · ML · Agent · Parallel · Body
+**12-phase deadline checks** — `check_timeout!()` across RECON · CRAWL · FUZZ · PER-URL · SQLi · TLS · CORS · COMMON · FILTER · AGENT · PARALLEL · BODY
+
 
 ---
 
